@@ -1,0 +1,29 @@
+.icon-group-icon-group {
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.icon-group-image {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  object-fit: cover;
+  margin-right: 2rem;
+}
+.icon-group-image1 {
+  width: var(--dl-size-size-xsmall);
+  height: 100%;
+  object-fit: cover;
+  margin-right: 2rem;
+}
+.icon-group-icon {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+  margin-right: var(--dl-space-space-twounits);
+}
+.icon-group-icon2 {
+  width: var(--dl-size-size-xsmall);
+  height: var(--dl-size-size-xsmall);
+}
+
