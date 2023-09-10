@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import Head from 'next/head'
 
 import Logo from '../components/logo'
@@ -9,6 +9,17 @@ import NFLDropdownComponent from '../components/dropdown_component';  // Adjust 
 
 
 const Analytics = (props) => {
+  const [team1, setTeam1] = useState('');
+  const [team2, setTeam2] = useState('');
+
+  const handleTeam1Change = (selectedTeam) => {
+    setTeam1(selectedTeam);
+  };
+
+  const handleTeam2Change = (selectedTeam) => {
+    setTeam2(selectedTeam);
+  };
+
   return (
     <>
       <div className="analytics-container">
@@ -78,15 +89,15 @@ const Analytics = (props) => {
         </div>
         <div className="analytics-selection">
           <div className="analytics-container3">
-            <NFLDropdownComponent />
+            <NFLDropdownComponent onTeamChange={handleTeam1Change} />
           </div>
           <div className="analytics-container4">
-            <NFLDropdownComponent />
+            <NFLDropdownComponent onTeamChange={handleTeam2Change} />
           </div>
         </div>
         <div className="analytics-dashboard">
           {/* <ScatterPlotComponent /> */}
-          <ScatterPlotComponent  />
+          <ScatterPlotComponent  team1={team1} team2={team2} />
         </div>
       </div>
       <style jsx>

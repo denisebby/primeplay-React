@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NFLDropdownComponent = () => {
+const NFLDropdownComponent = ( { onTeamChange } ) => {
   const teams = [
     "Arizona Cardinals",
     "Atlanta Falcons",
@@ -36,8 +36,12 @@ const NFLDropdownComponent = () => {
     "Washington Commanders"
   ];
 
+  const handleTeamChange = (event) => {
+    onTeamChange(event.target.value);
+  };
+
   return (
-    <select>
+    <select onChange={handleTeamChange}>
       {teams.map((team, index) => (
         <option key={index} value={team}>
           {team}
