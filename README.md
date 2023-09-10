@@ -11,3 +11,8 @@ npm install -g next # not sure if we need this
 npm run build
 npm run start
 ```
+
+For development, do:
+```shell
+npm run dev
+```

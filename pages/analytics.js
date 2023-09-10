@@ -4,6 +4,10 @@ import Head from 'next/head'
 import Logo from '../components/logo'
 import NavigationLinks1 from '../components/navigation-links1'
 
+import ScatterPlotComponent from '../components/scatter_plot_component';  // Adjust the path accordingly.
+import NFLDropdownComponent from '../components/dropdown_component';  // Adjust the path accordingly.
+
+
 const Analytics = (props) => {
   return (
     <>
@@ -73,10 +77,17 @@ const Analytics = (props) => {
           </span>
         </div>
         <div className="analytics-selection">
-          <div className="analytics-container3"></div>
-          <div className="analytics-container4"></div>
+          <div className="analytics-container3">
+            <NFLDropdownComponent />
+          </div>
+          <div className="analytics-container4">
+            <NFLDropdownComponent />
+          </div>
         </div>
-        <div className="analytics-dashboard"></div>
+        <div className="analytics-dashboard">
+          {/* <ScatterPlotComponent /> */}
+          <ScatterPlotComponent  />
+        </div>
       </div>
       <style jsx>
         {`
