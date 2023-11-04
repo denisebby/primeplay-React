@@ -95,7 +95,7 @@ const Analytics = (props) => {
             <NFLDropdownComponent onTeamChange={handleTeam2Change} />
           </div>
         </div>
-        <div className="analytics-dashboard">
+        <div className="analytics-dashboard" style={{"justify-content": "center", "align-items": "center"}}>
           {/* <ScatterPlotComponent /> */}
           <ScatterPlotComponent  team1={team1} team2={team2} />
         </div>

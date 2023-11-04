@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Plotly from 'plotly.js-dist-min';
 import Papa from 'papaparse';
 
 const ScatterPlotComponent = ({team1, team2}) => {
@@ -58,16 +59,49 @@ const ScatterPlotComponent = ({team1, team2}) => {
       ];
 
       const layout = {
-        title: 'NFL Stats'
+        title: '<b>NFL Stats</b>',
+        autosize: true, // this ensures the plot will size itself to the div
+        responsive: true,
+        xaxis: {
+          title: 'Week',
+          showline: true,
+          linewidth: 0.5,
+          linecolor: 'black',
+          mirror: true,
+          // other x-axis specific configurations
+        },
+        yaxis: {
+          title: 'Points Scored',
+          showline: true,
+          linewidth: 0.5,
+          linecolor: 'black',
+          mirror: true,
+          // other y-axis specific configurations
+        },
       };
 
       Plot.newPlot('scatterplot', trace, layout);
     }
   }, [Plot, data, team1, team2]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      Plotly.Plots.resize(document.getElementById('scatterplot'));
+    };
+  
+    // Resize the plot when the window is resized
+    window.addEventListener('resize', handleResize);
+  
+    // Return a clean-up function to remove the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
 
   return (
-    <div id="scatterplot"></div>
+    <div id="scatterplot" 
+    style={{display: "flex", "justify-content": "center", "align-items": "center", width: "80%", height: "100%"}}></div>
   );
 
 
