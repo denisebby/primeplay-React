@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Plotly from 'plotly.js-dist-min';
 import Papa from 'papaparse';
+
 
 const ScatterPlotComponent = ({team1, team2}) => {
   const [Plot, setPlotly] = useState();
@@ -86,7 +86,14 @@ const ScatterPlotComponent = ({team1, team2}) => {
 
   useEffect(() => {
     const handleResize = () => {
-      Plotly.Plots.resize(document.getElementById('scatterplot'));
+
+
+      import('plotly.js/dist/plotly.min.js').then(Plotly => {
+        Plotly.Plots.resize(document.getElementById('scatterplot'));
+      });
+
+
+      
     };
   
     // Resize the plot when the window is resized
@@ -101,7 +108,7 @@ const ScatterPlotComponent = ({team1, team2}) => {
 
   return (
     <div id="scatterplot" 
-    style={{display: "flex", "justify-content": "center", "align-items": "center", width: "80%", height: "100%"}}></div>
+    style={{display: "flex", "justify-content": "center", width: "80%", height: "100%"}}></div>
   );
 
 
