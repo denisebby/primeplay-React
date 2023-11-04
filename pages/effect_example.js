@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import MultipleOptionsComponent from '../components/multiple_options';
 
 export default function Home() {
   const [data, setData] = useState(null);
@@ -26,7 +27,11 @@ export default function Home() {
       )}
 
       {error && <p>Error: {error}</p>}
+
+      <MultipleOptionsComponent />
     </div>
+
+    
   );
 }
 
